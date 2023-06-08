@@ -83,7 +83,7 @@ class YoloNasDetectionModel(DetectionModel):
             raise Exception(f"Not a YoloNas model: {type(model)}")
 
         # set default processing params for yolo_nas model
-        processing_params = get_pretrained_processing_params(model_name=self.model_name, pretrained_weights="coco")
+        processing_params = get_pretrained_processing_params(model_name=self.model_name, pretrained_weights=self.pretrained_weights)
         processing_params["conf"] = self.confidence_threshold
         if self.class_names:  # override class names for custom trained models
             processing_params["class_names"] = self.class_names
